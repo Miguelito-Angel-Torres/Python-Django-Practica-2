@@ -1,0 +1,101 @@
+#Primero poner : python manage.py createsuperuser
+torres 123456789
+Estoy en la Carpeta ADMIN 
+from gestionPedidos.models import la Cliente, Articuls,Pedidos
+
+
+
+class ClienteAdmin(admin.ModelAdmin):
+#Lo q quiero ver 
+list_display("nombre,"direccion,"tfno)
+
+#Se crea uan barra de busqueda
+search_fields("nombre",tfno)
+
+#agregacion filtro 
+class ArticulosAdmin(admin.ModelAdmin):
+    list_filter= ("seccion),
+
+
+class PedidosAdmin(admin.ModelAdmin):
+list_display=("numero"."fecha"),
+list_filter=("fecha")
+
+date_hierarchy ="fecha
+
+admin.site.register(La clase, ClienteAdmin,)
+admin.site.register(Articulo,ArticulosAdmin)
+ADMIN.site.register(Pedidos,PedidoAdmin)
+
+
+class Cliente(models.Model)
+mombre = models.Model.charField(max_length=30)
+direccion = models.Model.charField(max_length=50)
+email =models.EmailField(blank = True,null = True)
+tfno = models.Model.charField(max_length=7)
+
+class Articulos(models.Model)
+
+nombre = models.Model.charField(max_length=60)
+seccion = models.Model.charField(max_length=20)
+precio = models.IntegerField()
+
+
+Quieres:
+def __str__(self):
+return : 'El nomes es %s la seccion %s y el precio %s
+%s' %{self.nombre,self.seccion,self.precio}
+
+class pedido(models.Model)
+numero = models.IntegerField()
+fecha= models.DateFiel()
+entregado = models.BooleanField()
+
+#agregacion filtro 
+class ArticulosAdmin
+
+from gestionedidos.models import Articulos
+
+art = Articulos.objects.create(nombre= "mesa,seccion= "decoracion,precio=50)
+art.save()
+para cambiar 
+art.precio = 56
+art.save()
+
+borar 
+art5= Articulos.objects.get(id=6)
+art5.delete()
+
+
+
+pgAdmin4 :
+en postgrees boton derecho dar click en Query Tool
+
+create database Miguel  y dar click en el rayo
+
+View/Edit data 
+
+python manage.py shell
+from gestionPedidos.models import Clientes
+Cli= Clientes(nombre="Juan",direccion="Mi casa" , tfno="123")
+Cli.save()
+
+filter = where
+
+from gestionPedidos.models import Articulos
+Articulos.objects.filter(seccion="deportes")
+
+
+# Para ver cambio en el servidor se reinicia servidor 
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+
+ python manage.py startapp blog
+
+ migraciones :
+
+ python manage.py makemigrations blog
+ python manage.py migrate blog

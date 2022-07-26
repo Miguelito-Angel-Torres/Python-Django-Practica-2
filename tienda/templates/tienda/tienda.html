@@ -1,0 +1,51 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+<!--En el navegador bootstrap grid(grid= tabla)    https://getbootstrap.com/docs/4.0/layout/grid/!-->
+{% block content %}
+<div class="container">
+  <div style="float:right; ">
+    <!--Acceder a la variable global-->
+    <!--<p style ="color:aliceblue">Total:{{importe_total_carro}}</p> -->
+     <!--Estoy llamando al html widget -->
+    {% include "carro/widget.html" %} 
+  </div>  
+
+   <div class="row">
+    
+{% for producto in productos %}
+
+  <div class="col-md-3">
+    <div class="card" style="width: 100%;margin:5px 5px;">
+      <img src="{{ producto.imagen.url }}" class="card-img-top"/>
+      <div class="card-body" style="text-align:center;">
+        <h7 class="card-title">{{ producto.nombre}}</h7>
+
+        <p class="card-text">{{ producto.precio}}&nbsp;$</p>
+
+
+
+
+
+      </div>
+
+      <div class = "card-footer text-center">
+        <!-- Q LLAMA A LA URL AGREGAR ID POR PRODUCTO-->
+        <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+      </div>
+    
+    
+    </div>
+   </div>
+
+
+
+
+{%endfor%}
+    </div>
+</div>
+
+
+
+{% endblock %}

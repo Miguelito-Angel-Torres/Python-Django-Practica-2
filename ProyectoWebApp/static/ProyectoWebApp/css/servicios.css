@@ -1,0 +1,15 @@
+.Contenido{
+    display: flex;
+    /* flex-wrap : wrap es para que tire hacia abajo*/
+    flex-wrap: wrap;
+    justify-content: center;
+    color : #333;
+    font-family :sans-serif;
+  
+}
+
+
+.Imagen{
+    height: 100px;
+}
+
